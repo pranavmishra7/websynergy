@@ -1,1 +1,56 @@
-<p>pump-overview works!</p>
+<header>Sort Order
+
+        <select matNativeControl >
+          <option *ngFor="let field of sortFields" [value]="field.value">
+            {{field.viewValue}}
+          </option>
+         
+        </select>
+       <span>1-5 of 5 Assets</span>
+</header>
+<ng-container >
+    <div *ngFor="let pump of pumps" class="clear-top">
+        <div class="header">{{pump.station}} - {{pump.serialNumber}}</div>
+        <div id="tablecontainer" class="header">
+
+            <div id="leftImg" class="inline" >
+                <img [src]="pump.imgPath">    
+            </div>
+            <div  id="rightdata" class="inline v-align">
+             <div>
+               Model Number - {{pump.modelNumber}} 
+             </div>
+             <div>
+                Serial Number  - {{pump.serialNumber}}
+              </div>
+              <div>
+                Description  - {{pump.description}}
+              </div>
+              <div>
+                Location  - {{pump.location}}
+              </div>
+            </div>
+            <div class="inline card">
+                <div>
+                    <div class="status">
+                        <img [src]="pump.status? okIcon:stopIcon" class="icon">
+                        {{pump.status?'Running':'Stopped'}}
+                    </div>
+                    <div>
+                        <img src="../../../assets/images/bell.png" class="icon">
+                        <a href="#">Alerts</a>
+                    </div>
+                    <div>
+                        Weekly Total:
+                    </div>
+                </div>
+            
+            </div>
+        </div>
+    </div>
+  
+
+   
+   
+   
+</ng-container>
